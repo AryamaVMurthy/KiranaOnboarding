@@ -1,0 +1,75 @@
+###Creating a new product
+POST http://localhost:5000/product
+Content-Type: application/json
+
+{
+    "name": "Earpods",
+    "description": "Light weight, good sound filter",
+    "verificationStatus":true,
+    "availibilityStatus":true,
+    "price": 4000,
+    "image": "http://supabase/images/earpods",
+    "vendorId": 2
+}
+
+
+###Getting the product catalogue
+GET http://localhost:5000/product
+Content-Type: application/json
+
+{
+    "vendorId": 2
+}
+
+
+###Deleting a new product
+DELETE http://localhost:5000/product/1
+
+
+###updating the product details
+PUT http://localhost:5000/product/3
+Content-Type: application/json
+
+{
+    "name": "Graphics tablet",
+    "description": "It is black in colour",
+    "verificationStatus":true,
+    "availibilityStatus":true,
+    "price": 6000,
+    "image": "http://supabase/images/earpods"
+}
+
+
+###Storing a new order in the database
+POST http://localhost:5000/ordersReg
+Content-Type: application/json
+
+{
+    "quantity":1,
+    "approval": false,
+    "productId": 3
+}
+
+
+###Getting the order list for a product
+GET http://localhost:5000/orders
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM2NzkyODk3LCJleHAiOjE3MzY4NzkyOTd9.azSEJsHFZAX9o4hwnboR5LDiOgRCROTbhEUx7aSdWgI
+
+###Rejecting a new order
+DELETE http://localhost:5000/orders/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM2NzkyODk3LCJleHAiOjE3MzY4NzkyOTd9.azSEJsHFZAX9o4hwnboR5LDiOgRCROTbhEUx7aSdWgI
+
+
+###Approving the order
+PUT http://localhost:5000/orders/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM2NzkyODk3LCJleHAiOjE3MzY4NzkyOTd9.azSEJsHFZAX9o4hwnboR5LDiOgRCROTbhEUx7aSdWgI
+
+
+{
+    "approval": true
+}
+
+
+
